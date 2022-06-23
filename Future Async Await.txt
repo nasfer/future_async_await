@@ -1,0 +1,29 @@
+void main()async{
+  
+  // Future Async Await
+  
+  //como eu não sei quando terei uma resposta de uma requisição por exemplo eu uso o
+  //objeto Future.
+  
+  Future<String> cepFuture = getCepByName('Babilônia');
+  late String cep; // como eu sei que vou usar mais para frente no código eu uso o 'late'
+  
+  // use o operador do Future para receber a informação
+  // cepFuture.then((result)=> print(result));
+  
+  cep = await cepFuture; // o await é usado para dizer basicamente que vai
+                         // aguardar o retorno das informações de uma requisiçao
+                         // por exemplo e aí sim a variável CEP guarda a informação.
+  
+  print (cep);
+  
+}
+
+// external service
+  Future<String> getCepByName(String name){    
+    
+    //simulando uma requisição
+    return Future.value('37910-000');
+    
+    
+  }
